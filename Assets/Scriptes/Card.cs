@@ -12,7 +12,7 @@ public class Card : MonoBehaviour
     public Sprite backSprite;
 
 
-    private bool isFlipped = false;
+    public bool isFlipped = false;
     private bool isAnimating = false;
 
     public void SetupCard(int id, Sprite front)

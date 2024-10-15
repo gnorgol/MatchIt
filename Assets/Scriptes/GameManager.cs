@@ -31,9 +31,36 @@ public class GameManager : MonoBehaviour
         SetupGame();
     }
 
+    private void Update()
+    {
+        // Check if all cards are flipped
+        if (allCards.TrueForAll(card => card.isFlipped))
+        {
+            // All cards are flipped so we win and restart the game
+            Debug.Log("You win!");
+            RestartGame();
+
+        }
+    }
+
+    private void RestartGame()
+    {
+        if (cardPrefab != null) {
+            foreach (Transform child in cardGrid)
+            {
+                Destroy(child.gameObject);
+            }
+            allCards.Clear();
+            SetupGame();
+        }
+
+    }
+
     private void SetupGame()
     {
         int[] cardIDs = new int[cardFrontSprites.Length * 2];
+        numCardsFlip = 0;
+
         for (int i = 0; i < cardFrontSprites.Length; i++)
         {
             cardIDs[i * 2] = i;
