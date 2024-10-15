@@ -376,6 +376,14 @@ MonoBehaviour:
   cardFrontSprites:
   - {fileID: 21300000, guid: d1818998fc1a06741b537ece2e2db88d, type: 3}
   - {fileID: 21300000, guid: 9807b04518fafd841b1472df0a4d5987, type: 3}
+  - {fileID: 21300000, guid: 8be5fe802582ae8419659e8d3f2269f9, type: 3}
+  - {fileID: 21300000, guid: b4ab2686b691c744f9b5c3ca15980bb2, type: 3}
+  - {fileID: 21300000, guid: 315b71911b15a87409979a95f8e9ca3a, type: 3}
+  - {fileID: 21300000, guid: 9b6af0665bababe499454e9894eee557, type: 3}
+  - {fileID: 21300000, guid: 3d50660a0c3da3540bd9325c31ce6080, type: 3}
+  - {fileID: 21300000, guid: c86f5cd8375e2804caa7963e0ead0d4e, type: 3}
+  - {fileID: 21300000, guid: 706a4c479c5ccd64fbc3a453ca76e822, type: 3}
+  - {fileID: 21300000, guid: f6fd63aa7a8248b45a2cd6029f700538, type: 3}
 --- !u!4 &1274136111
 Transform:
   m_ObjectHideFlags: 0
