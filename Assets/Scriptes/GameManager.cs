@@ -14,12 +14,17 @@ public class GameManager : MonoBehaviour
     private Card firstFlippedCard;
     private Card secondFlippedCard;
 
+    private bool isAnimating = false;
+    private bool isFinished = false;
+
     private int numCardsFlip = 0;
     public int NumCardsFlip
     {
         get { return numCardsFlip; }
         set { numCardsFlip = value; }
     }
+
+    public bool IsAnimating { get => isAnimating; set => isAnimating = value; }
 
     private void Awake()
     {
@@ -34,13 +39,20 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // Check if all cards are flipped
-        if (allCards.TrueForAll(card => card.isFlipped))
+        if (allCards.TrueForAll(card => card.isFlipped) && !isAnimating && !isFinished)
         {
+            isFinished = true;
             // All cards are flipped so we win and restart the game
             Debug.Log("You win!");
-            RestartGame();
+            //wait for 1 seconds before restarting the game
+            StartCoroutine(WaitAndRestartGame());           
 
         }
+    }
+    private IEnumerator WaitAndRestartGame()
+    {
+        yield return new WaitForSeconds(1);
+        RestartGame();
     }
 
     private void RestartGame()
@@ -50,6 +62,7 @@ public class GameManager : MonoBehaviour
             {
                 Destroy(child.gameObject);
             }
+            isFinished = false;
             allCards.Clear();
             SetupGame();
         }
@@ -93,7 +106,7 @@ public class GameManager : MonoBehaviour
 
     public void CardFlipped(Card card)
     {
- 
+        IsAnimating = false;
         if (firstFlippedCard == null)
         {
             firstFlippedCard = card;
