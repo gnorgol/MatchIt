@@ -27,8 +27,11 @@ public class Card : MonoBehaviour
     {
         if (isFlipped || isAnimating || GameManager.Instance.NumCardsFlip >= 2)
         return;
+        GameManager.Instance.IsAnimating = true;
 
         StartCoroutine(FlipAnimation());
+
+
 
     }
 
